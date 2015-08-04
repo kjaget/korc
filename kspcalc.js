@@ -128,6 +128,26 @@ var PACKS = [
 			{"name":"TVR-200L Stack Bi-Adapter","type":TYPES.BRANCH,"size":2,"cost":400,"mass":0.1,"sizeA":2,"sizeB":1,"multiplier":2},
 			{"name":"TVR-200 Stack Bi-Coupler","type":TYPES.BRANCH,"size":1,"cost":400,"mass":0.1,"sizeA":1,"sizeB":1,"multiplier":2}
 		]
+	},
+	{
+		name:"Cryogenic Engines",
+		parts:[
+			//LH2/OX Engines
+			{"name":"Ct65 \'Yucatan\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":2,"cost":31900,"mass":8.95,"thrust_min":0,"thrust_max":783.333,"throttleable":true,"isp_vac":435,"isp_atm":235,"thrust_atm":783.333,"thrust_vac":1450,"gimbal":2},
+			{"name":"CT2X \'Tunguska\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":2,"cost":7900,"mass":3.45,"thrust_min":0,"thrust_max":116.111,"throttleable":true,"isp_vac":450,"isp_atm":190,"thrust_atm":116.111,"thrust_vac":275,"gimbal":3},
+			{"name":"VL-1 \'Volcano\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":2300,"mass":1.8,"thrust_min":0,"thrust_max":241.463,"throttleable":true,"isp_vac":410,"isp_atm":360,"thrust_atm":241.463,"thrust_vac":275,"gimbal":1.5},
+			{"name":"Ct10 \'Chelyabinsk\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":1920,"mass":0.8,"thrust_min":0,"thrust_max":16.923,"throttleable":true,"isp_vac":455,"isp_atm":140,"thrust_atm":16.923,"thrust_vac":55,"gimbal":3.5},
+			
+			//LH2/OX Tanks
+			{"name":"Rockomax Jumbo-64 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":4389,"mass":2.808,"mass_fuel":16.44048},
+			{"name":"Rockomax X200-32 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":2320,"mass":1.404,"mass_fuel":8.22024},
+			{"name":"Rockomax X200-16 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":1210,"mass":0.702,"mass_fuel":4.110120008},
+			{"name":"Rockomax X200-8 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":630,"mass":0.351,"mass_fuel":2.055060004},
+			{"name":"FL-T800 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":630,"mass":0.351,"mass_fuel":2.055060004},
+			{"name":"FL-T400 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":415,"mass":0.1755,"mass_fuel":1.027529982},
+			{"name":"FL-T200 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":232,"mass":0.08775,"mass_fuel":0.513764991},
+			{"name":"FL-T100 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":129,"mass":0.043875,"mass_fuel":0.256882495}
+		]
 	}
 ];
 
