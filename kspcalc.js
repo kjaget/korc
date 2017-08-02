@@ -153,7 +153,14 @@ var PACKS = [
 			{"name":"FL-T800 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":630,"mass":0.351,"mass_fuel":2.055060004},
 			{"name":"FL-T400 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":415,"mass":0.1755,"mass_fuel":1.027529982},
 			{"name":"FL-T200 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":232,"mass":0.08775,"mass_fuel":0.513764991},
-			{"name":"FL-T100 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":129,"mass":0.043875,"mass_fuel":0.256882495}
+			{"name":"FL-T100 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":129,"mass":0.043875,"mass_fuel":0.256882495},
+
+			//Clusters
+			{"name":"2x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":2},
+			{"name":"3x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":3},
+			{"name":"4x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":4},
+			{"name":"6x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":6},
+			{"name":"8x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":8}
 		]
 	}
 ];
