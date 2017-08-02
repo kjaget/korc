@@ -140,12 +140,15 @@ var PACKS = [
 		name:"Cryogenic Engines",
 		parts:[
 			//LH2/OX Engines
-			{"name":"KL-21 \'Odin\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":2,"cost":15200,"mass":5.75,"thrust_min":0,"thrust_max":1050,"throttleable":true,"isp_vac":420,"isp_atm":385,"thrust_atm":962.5,"thrust_vac":1050,"gimbal":3},
-			{"name":"CT2X \'Tunguska\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":2,"cost":4600,"mass":2.75,"thrust_min":0,"thrust_max":275,"throttleable":true,"isp_vac":455,"isp_atm":190,"thrust_atm":114.835,"thrust_vac":275,"gimbal":3},
+			{"name":"KL-21 \'Odin\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":15200,"mass":5.75,"thrust_min":0,"thrust_max":1050,"throttleable":true,"isp_vac":420,"isp_atm":385,"thrust_atm":962.5,"thrust_vac":1050,"gimbal":3},
+			{"name":"CT2X \'Tunguska\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":4600,"mass":2.75,"thrust_min":0,"thrust_max":275,"throttleable":true,"isp_vac":455,"isp_atm":190,"thrust_atm":114.835,"thrust_vac":275,"gimbal":3},
 			{"name":"KL-1 \'Volcano\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":1600,"mass":1.6,"thrust_min":0,"thrust_max":230,"throttleable":true,"isp_vac":422,"isp_atm":385,"thrust_atm":209.834,"thrust_vac":230,"gimbal":1.5},
 			{"name":"CT10 \'Chelyabinsk\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":1020,"mass":0.8,"thrust_min":0,"thrust_max":16.559,"throttleable":true,"isp_vac":465,"isp_atm":140,"thrust_atm":16.559,"thrust_vac":55,"gimbal":3.5},
 			
 			//LH2/OX Tanks
+			{"name":"Kerbodyne S3-14400 Tank","type":TYPES.LFO_TANK,"size":3,"cost":8496.4,"mass":3.366,"mass_fuel":17.506},
+			{"name":"Kerbodyne S3-7200 Tank","type":TYPES.LFO_TANK,"size":3,"cost":4248.2,"mass":1.683,"mass_fuel":8.73},
+			{"name":"Kerbodyne S3-3600 Tank","type":TYPES.LFO_TANK,"size":3,"cost":2124.1,"mass":0.841,"mass_fuel":4.366},
 			{"name":"Rockomax Jumbo-64 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":3748.4,"mass":1.496,"mass_fuel":7.76},
 			{"name":"Rockomax X200-32 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":1999.2,"mass":0.748,"mass_fuel":3.88},
 			{"name":"Rockomax X200-16 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":1049.6,"mass":0.374,"mass_fuel":1.94},
@@ -156,11 +159,11 @@ var PACKS = [
 			{"name":"FL-T100 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":129,"mass":0.043875,"mass_fuel":0.256882495},
 
 			//Clusters
-			{"name":"2x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":2},
-			{"name":"3x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":3},
-			{"name":"4x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":4},
-			{"name":"6x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":6},
-			{"name":"8x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":2,"multiplier":8}
+			{"name":"2x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":2},
+			{"name":"3x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":3},
+			{"name":"4x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":4},
+			{"name":"6x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":6},
+			{"name":"8x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":8}
 		]
 	}
 ];
