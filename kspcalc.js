@@ -159,11 +159,16 @@ var PACKS = [
 			{"name":"FL-T100 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":129,"mass":0.043875,"mass_fuel":0.256882495},
 
 			//Clusters
-			{"name":"2x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":2},
-			{"name":"3x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":3},
-			{"name":"4x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":4},
-			{"name":"6x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":6},
-			{"name":"8x Engine Cluster","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":8}
+			{"name":"2x Engine Cluster (Size 2)","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":2},
+			{"name":"3x Engine Cluster (Size 2)","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":3},
+			{"name":"4x Engine Cluster (Size 2)","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":4},
+			{"name":"6x Engine Cluster (Size 2)","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":6},
+			{"name":"8x Engine Cluster (Size 2)","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":8},
+			{"name":"2x Engine Cluster (Size 3)","type":TYPES.BRANCH,"size":3,"cost":0,"mass":0,"sizeA":3,"sizeB":1,"multiplier":2},
+			{"name":"3x Engine Cluster (Size 3)","type":TYPES.BRANCH,"size":3,"cost":0,"mass":0,"sizeA":3,"sizeB":1,"multiplier":3},
+			{"name":"4x Engine Cluster (Size 3)","type":TYPES.BRANCH,"size":3,"cost":0,"mass":0,"sizeA":3,"sizeB":1,"multiplier":4},
+			{"name":"6x Engine Cluster (Size 3)","type":TYPES.BRANCH,"size":3,"cost":0,"mass":0,"sizeA":3,"sizeB":1,"multiplier":6},
+			{"name":"8x Engine Cluster (Size 3)","type":TYPES.BRANCH,"size":3,"cost":0,"mass":0,"sizeA":3,"sizeB":1,"multiplier":8}
 		]
 	}
 ];
