@@ -137,6 +137,13 @@ var PACKS = [
 		]
 	},
 	{
+		name:"Near Future Launch Vehicles",
+		parts:[
+			{"name":"RE-4 \'Buzzard\' Liquid Fuel Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":43200,"mass":9.0,"thrust_min":0,"thrust_max":2600,"throttleable":true,"isp_vac":328,"isp_atm":309,"thrust_atm":2449.39,"thrust_vac":2600,"gimbal":4},
+			{"name":"S1-V \'Eaglet\' Liquid Fuel Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":15000,"mass":2.0,"thrust_min":0,"thrust_max":400,"throttleable":true,"isp_vac":350,"isp_atm":155,"thrust_atm":177.143,"thrust_vac":400,"gimbal":2}
+		]
+	},
+	{
 		name:"Cryogenic Engines",
 		parts:[
 			//LH2/OX Engines
