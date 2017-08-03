@@ -146,17 +146,17 @@ var PACKS = [
 			{"name":"CT10 \'Chelyabinsk\' Cryogenic Rocket Engine","type":TYPES.LFO_ENGINE,"size":1,"cost":1020,"mass":0.8,"thrust_min":0,"thrust_max":16.559,"throttleable":true,"isp_vac":465,"isp_atm":140,"thrust_atm":16.559,"thrust_vac":55,"gimbal":3.5},
 			
 			//LH2/OX Tanks
-			{"name":"Kerbodyne S3-14400 Tank","type":TYPES.LFO_TANK,"size":3,"cost":8496.4,"mass":3.366,"mass_fuel":17.506},
-			{"name":"Kerbodyne S3-7200 Tank","type":TYPES.LFO_TANK,"size":3,"cost":4248.2,"mass":1.683,"mass_fuel":8.73},
-			{"name":"Kerbodyne S3-3600 Tank","type":TYPES.LFO_TANK,"size":3,"cost":2124.1,"mass":0.841,"mass_fuel":4.366},
-			{"name":"Rockomax Jumbo-64 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":3748.4,"mass":1.496,"mass_fuel":7.76},
-			{"name":"Rockomax X200-32 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":1999.2,"mass":0.748,"mass_fuel":3.88},
-			{"name":"Rockomax X200-16 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":1049.6,"mass":0.374,"mass_fuel":1.94},
-			{"name":"Rockomax X200-8 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":549.8,"mass":0.187,"mass_fuel":0.97},
-			{"name":"FL-T800 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":630,"mass":0.351,"mass_fuel":2.055060004},
-			{"name":"FL-T400 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":415,"mass":0.1755,"mass_fuel":1.027529982},
-			{"name":"FL-T200 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":232,"mass":0.08775,"mass_fuel":0.513764991},
-			{"name":"FL-T100 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":129,"mass":0.043875,"mass_fuel":0.256882495},
+			{"name":"Kerbodyne S3-14400 Tank","type":TYPES.LFO_TANK,"size":3,"cost":8496,"mass":3.366,"mass_fuel":17.506},
+			{"name":"Kerbodyne S3-7200 Tank","type":TYPES.LFO_TANK,"size":3,"cost":4248,"mass":1.683,"mass_fuel":8.73},
+			{"name":"Kerbodyne S3-3600 Tank","type":TYPES.LFO_TANK,"size":3,"cost":2124,"mass":0.841,"mass_fuel":4.366},
+			{"name":"Rockomax Jumbo-64 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":3748,"mass":1.496,"mass_fuel":7.76},
+			{"name":"Rockomax X200-32 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":1999,"mass":0.748,"mass_fuel":3.88},
+			{"name":"Rockomax X200-16 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":1049,"mass":0.374,"mass_fuel":1.94},
+			{"name":"Rockomax X200-8 LH2/OX Tank","type":TYPES.LFO_TANK,"size":2,"cost":549,"mass":0.187,"mass_fuel":0.97},
+			{"name":"FL-T800 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":550,"mass":0.187,"mass_fuel":0.97},
+			{"name":"FL-T400 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":375,"mass":0.093,"mass_fuel":0.486},
+			{"name":"FL-T200 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":212,"mass":0.047,"mass_fuel":0.242},
+			{"name":"FL-T100 LH2/OX Tank","type":TYPES.LFO_TANK,"size":1,"cost":119,"mass":0.023,"mass_fuel":0.122},
 
 			//Clusters
 			{"name":"2x Engine Cluster (Size 2)","type":TYPES.BRANCH,"size":2,"cost":0,"mass":0,"sizeA":2,"sizeB":1,"multiplier":2},
