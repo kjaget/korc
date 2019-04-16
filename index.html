@@ -145,6 +145,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .searchResults .others { color: orange; }
 .searchResults .lfoTanks { color: darkblue; }
 .searchResults .branches { color: gray; }
+.searchResults .adapters { color: gray; }
 .searchResults .lfoEngines { color: crimson; }
 .searchResults .boosters { color: darkviolet; }
 .searchResults .multiplier { font-weight: bold; }
@@ -195,7 +196,8 @@ function sortParts(parts, optimization) {
 		boosters : _.sortBy(types[TYPES.BOOSTER], descending),
 		stackDecouplers : _.sortBy(_.where(types[TYPES.DECOUPLER], {radial:undefined}), ascending),
 		radialDecouplers : _.sortBy(_.where(types[TYPES.DECOUPLER], {radial:true}), ascending),
-		branches : types[TYPES.BRANCH]
+		branches : types[TYPES.BRANCH],
+		adapters: types[TYPES.ADAPTER]
 	}
 }
 	
@@ -212,6 +214,7 @@ function SettingsController($scope) {
 	$scope.minTime;
 	$scope.maxTime;
 	$scope.maxMass;
+	$scope.minSize = "1";
 	$scope.maxPartCount;
 	$scope.maxStages = 3;
 	$scope.maxStacks = 4;
@@ -295,6 +298,7 @@ function SettingsController($scope) {
 				newStage.boosters = KSP.Parts.countUnique(currentStage.boosters);
 				newStage.decouplers = KSP.Parts.countUnique(currentStage.decouplers);
 				newStage.branches = KSP.Parts.countUnique(currentStage.branches);
+				newStage.adapters = KSP.Parts.countUnique(currentStage.adapters);
 				
 				result.stages.push(newStage);
 				currentStage = currentStage.next;
@@ -373,6 +377,7 @@ function SettingsController($scope) {
 			minTime : $scope.minTime,
 			maxTime : $scope.maxTime,
 			maxMass : $scope.maxMass,
+			minSize : $scope.minSize,
 			maxPartCount : $scope.maxPartCount,
 			atm : ($scope.atmosphere ? 1 : 0),
 			maxStacks : ($scope.lastStageSingle ? 1 : $scope.maxStacks),
@@ -611,6 +616,19 @@ function SettingsController($scope) {
 							</div>
 						</div>
 						
+						<div class="form-group">
+							<label for="settingsMinSize" class="control-label col-sm-5">Minimum Tank Size</label>
+							<div class="col-sm-7">
+							    <select name="minSize" id="settingsMinSize" class="form-control" ng-model="minSize">
+								<option value=0>0</option>
+								<option value=1>1</option>
+								<option value=1.5>1.5</option>
+								<option value=2>2</option>
+								<option value=3>3</option>
+								<option value=4>4</option>
+							    </select>
+							</div>
+						</div>
 						<div class="form-group" ng-hide="optimization == 'partCount'">
 							<label for="settingsMaxPartCount" class="control-label col-sm-5">Maximum Total Part Count</label>
 							<div class="col-sm-7">
@@ -799,6 +817,7 @@ function SettingsController($scope) {
 										<li class="others" ng-repeat="part in stage.others">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
 										<li class="lfoTanks" ng-repeat="part in stage.lfoTanks">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
 										<li class="branches" ng-repeat="part in stage.branches">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
+										<li class="adapters" ng-repeat="part in stage.adapters">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
 										<li class="lfoEngines" ng-repeat="part in stage.lfoEngines">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
 										<li class="boosters" ng-repeat="part in stage.boosters">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
 									</ol>

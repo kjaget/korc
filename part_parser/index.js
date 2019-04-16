@@ -14,7 +14,8 @@ var TYPES = {
 	DUCT:5,
 	BRANCH:6,
 	LF_TANK:21,
-	O_TANK:22
+	O_TANK:22,
+	ADAPTER:23
 };
 
 var RESOURCE_MASS = {
@@ -24,13 +25,25 @@ var RESOURCE_MASS = {
 	"MonoPropellant" : 0.004
 };
 
+var SIZES = {
+    "size0" : 0.0,
+    "size1" : 1.0,
+    "size1p5" : 1.5,
+    "size2" : 2.0,
+    "size3" : 3.0,
+    "size4" : 4.0
+}
+
+var localization_file;
 function findFiles(path) {
 	var files = [];
 	var ls = fs.readdirSync(path);
 	for (var x = 0, xl = ls.length; x < xl; ++x) {
 		var file = pathUtil.join(path,ls[x]);
-		if (fs.statSync(file).isDirectory()) {
+		if (fs.statSync(file).isDirectory() && (ls[x] != "zDeprecated")) {
 			files = files.concat(findFiles(file));
+		} else if (file.slice(-14) == "dictionary.cfg") {
+			localization_file = file;
 		} else if (file.slice(-4) === ".cfg") {
 			files.push(file);
 		}
@@ -59,14 +72,22 @@ function last(arr, defaultValue) {
 	}
 	return defaultValue;
 }
+var files = findFiles(partDir);
+var localization = [];
+var loc = parseFile(localization_file).﻿Localization[0]['en-us'][0];
+if (loc) {
+    localization = loc;
+}
 
 var results = [];
-findFiles(partDir).map(parseFile).forEach(function (fileParts) {
+files.map(parseFile).forEach(function (fileParts) {
+
 	var parts = fileParts.PART;
 	if (parts) {
 		parts.forEach(function (part) {
+		    
 			var result = {
-				name : part.title ? part.title[part.title.length-1] : part.name[part.name.length-1], 
+			    name : part.title ? (localization[part.title[part.title.length-1]] ? localization[part.title[part.title.length-1]][0] : part.title[part.title.length-1]) : part.name[part.name.length-1], 
 				type : "TYPES.UNKNOWN", 
 				size : -1,
 				cost : part.cost ? parseInt(part.cost[part.cost.length-1]) : 0, 
@@ -86,6 +107,16 @@ findFiles(partDir).map(parseFile).forEach(function (fileParts) {
 				var node_stack = (part.node_stack_top || part.node_stack_bottom || part.node_attach)[0].split(/\s*,\s*/);
 				result.size = parseFloat(node_stack[6]);
 				if (isNaN(result.size)) result.size = (radial ? -1 : 1);  //WATCH: Seems to be a safe assumption
+
+			//	var node_top = [];
+			//	var node_bottom = [];
+			//	if (part.node_stack_top || part.node_attach) node_top = (part.node_stack_top || part.node_attach)[0].split(/\s*,\s*/);
+			//	if (part.node_stack_bottom || part.node_attach) node_bottom = (part.node_stack_bottom || part.node_attach)[0].split(/\s*,\s*/);
+			//	var size_top = parseFloat(node_top[6]);
+			//	var size_bottom = parseFloat(node_bottom[6]);
+//
+//				result.sizeA = isNaN(size_bottom) ? (radial ? -1 : size_top) : size_bottom;
+//				result.sizeB = isNaN(size_top) ? (radial ? -1 : size_bottom) : size_top;
 			}
 			
 			//LF/O Engine properties
@@ -121,7 +152,7 @@ findFiles(partDir).map(parseFile).forEach(function (fileParts) {
 			
 			var moduleGimbal = jsonPath(part, "$.MODULE[?(@.name[-1:]=='ModuleGimbal')]");
 			if (moduleGimbal) {
-				console.assert(moduleGimbal.length === 1, "Part has one and only one gimbal", part);
+				//console.assert(moduleGimbal.length === 1, "Part has one and only one gimbal", part);
 				moduleGimbal = moduleGimbal[0];
 				
 				result.gimbal = parseFloat(moduleGimbal.gimbalRange[moduleGimbal.gimbalRange.length-1]);
@@ -166,6 +197,7 @@ findFiles(partDir).map(parseFile).forEach(function (fileParts) {
 					}
 				});
 			}
+
 			
 			//Decoupler properties
 			var moduleDecoupler = jsonPath(part, "$.MODULE[?(@.name[-1:]=='ModuleDecouple'||@.name[-1:]=='ModuleAnchoredDecoupler')]");
@@ -174,6 +206,7 @@ findFiles(partDir).map(parseFile).forEach(function (fileParts) {
 				
 				if (result.type === "TYPES.UNKNOWN") result.type = "TYPES.DECOUPLER";
 				result.ejection_force = parseInt(moduleDecoupler.ejectionForce[moduleDecoupler.ejectionForce.length-1]);
+				result.is_engine_plate = moduleDecoupler.isEnginePlate == "true" ? true : false;
 			}
 			
 			//Find largest branch number
@@ -204,8 +237,29 @@ findFiles(partDir).map(parseFile).forEach(function (fileParts) {
 				result.size = -1;
 			}
 			
+			if (part.bulkheadProfiles && (result.type == "TYPES.LFO_TANK" || result.type == "TYPES.DECOUPLER" || result.type == "TYPES.UNKNOWN"))
+			{
+			    //console.log ("%s --> %s", part.name, part.bulkheadProfiles[0].split(/\s*,\s*/));
+			    var bPs = part.bulkheadProfiles[0].split(/\s*,\s*/);
+			    if (bPs[bPs.length - 1] == "srf") bPs.pop();
+			    if (bPs.length == 2)
+			    {
+				console.assert(typeof SIZES[bPs[0]] != 'undefined', "Unknown bulkheadProfies size", bPs[0]);
+				console.assert(typeof SIZES[bPs[1]] != 'undefined', "Unknown bulkheadProfies size", bPs[1]);
+
+				result.size = result.sizeA = Math.max(SIZES[bPs[0]], SIZES[bPs[1]]);
+				result.sizeB = Math.min(SIZES[bPs[0]], SIZES[bPs[1]]);
+				//console.log("%d %d %s", result.sizeA, result.sizeB, result.type);
+				result.type = "TYPES.ADAPTER";
+			    }
+			    else if ((bPs.length == 1) && (bPs[0] == "size1p5"))
+			    {
+				result.size = 1.5;
+			    }
+			}
+
 			//Remove useless parts
-			if (result.name === "Launch Escape System" || /Mk[123] |C7 Brand|Service Bay/.test(result.name)) result.type = "TYPES.UNKNOWN";
+			if (result.name === "Launch Escape System" || /Mk[123][\s-]|Cupola|C7 Brand|Service Bay|Structural Tube|Reentry Module|Heat Shield/.test(result.name)) result.type = "TYPES.UNKNOWN";
 			
 			results.push(result);
 		});
@@ -234,3 +288,5 @@ console.log("Decouplers:");
 console.log(prettyPrint(results.filter(partFilterByType.bind(this,"TYPES.DECOUPLER"))));
 console.log("Branches:");
 console.log(prettyPrint(results.filter(partFilterByType.bind(this,"TYPES.BRANCH"))));
+console.log("Adapters:");
+console.log(prettyPrint(results.filter(partFilterByType.bind(this,"TYPES.ADAPTER"))));

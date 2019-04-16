@@ -19,7 +19,7 @@ COMMENT = "//" [^\n]+ { return; }
 NIL = (WS / LF / COMMENT)* { return; }
 
 ANY = text:[^\n]+ { return trim(text.join("")); }
-VAR = text:[0-9A-Za-z_,]+ { return text.join(""); }
+VAR = text:[0-9A-Za-z_,#<>%]+ { return text.join(""); }
 SLASH = text:("/" !"/") { return "/"; }
 VALUE = text:([^\n/] / SLASH)+ { return trim(text.join("")); }
 
